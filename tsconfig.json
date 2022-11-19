@@ -21,6 +21,9 @@
 		"paths": {
 			"@/styles/*": ["src/styles/*"],
 			"@/components/*": ["src/components/*"],
+			"@/data/*": ["src/data/*"],
+			"@/scenes/*": ["src/scenes/*"],
+			"@/utils/*": ["src/utils/*"],
 			"@/public/*": ["public/*"]
 		}
 	},
