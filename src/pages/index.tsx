@@ -1,7 +1,11 @@
+import { Box, Typography } from "@mui/material";
+
 export default function Home() {
 	return (
-		<div>
-			<h1>Admin Dashboard</h1>
-		</div>
+		<Box>
+			<Typography variant="h1" fontWeight={600}>
+				Admin Dashboard
+			</Typography>
+		</Box>
 	);
 }

@@ -21,7 +21,7 @@ export const getColors = (mode: TColorMode) => ({
 					100: "#d0d1d5",
 					200: "#a1a4ab",
 					300: "#727681",
-					400: "#434957",
+					400: "#1F2A40",
 					500: "#141b2d",
 					600: "#101624",
 					700: "#0c101b",
@@ -121,7 +121,7 @@ export const getColors = (mode: TColorMode) => ({
 		  }),
 });
 
-export const themeSettings = (mode: TColorMode) => {
+export const getTheme = (mode: TColorMode) => {
 	const colors = getColors(mode);
 
 	return {
@@ -185,8 +185,7 @@ export const themeSettings = (mode: TColorMode) => {
 };
 
 export const ColorModeContext = createContext<IColorModeContext>({
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	toggleColorMode: () => {},
+	toggleColorMode: () => null,
 });
 
 export const useMode = () => {
@@ -200,7 +199,7 @@ export const useMode = () => {
 		[]
 	);
 
-	const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+	const theme = useMemo(() => createTheme(getTheme(mode)), [mode]);
 
 	return { theme, colorMode } as const;
 };
