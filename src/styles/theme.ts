@@ -180,6 +180,10 @@ export const getTheme = (mode: TColorMode) => {
 				fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
 				fontSize: 20,
 			},
+			h5: {
+				fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+				fontSize: 18,
+			},
 		},
 	};
 };

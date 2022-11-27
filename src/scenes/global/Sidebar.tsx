@@ -25,10 +25,11 @@ const SidebarComponent = ({ isSmall, setIsSmall }: Props) => {
 			position="fixed"
 			top={0}
 			left={0}
-			width={isSmall ? "4rem" : "14rem"}
+			width={isSmall ? "4rem" : "15rem"}
 			display="flex"
 			flexDirection="column"
 			p={2}
+			boxShadow="0 0 30px rgba(0,0,0,0.17)"
 			sx={{ overflowY: "auto", transition: "all 0.5s ease" }}
 		>
 			<IconButton
@@ -103,14 +104,19 @@ const SidebarComponent = ({ isSmall, setIsSmall }: Props) => {
 									alignItems="center"
 									fontSize={14}
 									gap={1.5}
-									px={1}
+									px={isSmall ? 1 : 2}
 									py={isSmall ? 1.5 : 1}
 									color={
 										router.pathname === item.route
 											? colors.blueAccent[400]
 											: colors.grey[100]
 									}
-									sx={{ transition: "all 0.3s ease" }}
+									sx={{
+										transition: "all 0.3s ease",
+										"&:hover": {
+											color: colors.blueAccent[400],
+										},
+									}}
 								>
 									{item.icon}
 									{!isSmall && item.text}

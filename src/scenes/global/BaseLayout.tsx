@@ -18,10 +18,10 @@ const BaseLayout = ({ children }: Props) => {
 			<Box
 				minHeight="100vh"
 				position="absolute"
-				width={isSmall ? "calc(100% - 4rem)" : "calc(100% - 14rem)"}
+				width={isSmall ? "calc(100% - 4rem)" : "calc(100% - 15rem)"}
 				px={2}
 				top={0}
-				left={isSmall ? "4rem" : "14rem"}
+				left={isSmall ? "4rem" : "15rem"}
 				sx={{ transition: "all 0.5s ease" }}
 			>
 				<Topbar />
