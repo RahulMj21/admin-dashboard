@@ -10,8 +10,12 @@ import {
 	PieChartOutlineOutlined,
 	TimelineOutlined,
 	MapOutlined,
+	AdminPanelSettingsOutlined,
+	SecurityOutlined,
+	LockOpenOutlined,
 } from "@mui/icons-material";
 import { ISidebarLink } from "@/utils/interfaces";
+import { TUserRole } from "@/utils/types";
 
 export const SIDEBAR_ITEMS: Record<string, ISidebarLink[]> = {
 	first: [
@@ -77,4 +81,10 @@ export const SIDEBAR_ITEMS: Record<string, ISidebarLink[]> = {
 			route: "/geography",
 		},
 	],
+};
+
+export const USER_ROLE_ICON: Record<TUserRole, JSX.Element> = {
+	admin: <AdminPanelSettingsOutlined />,
+	manager: <SecurityOutlined />,
+	user: <LockOpenOutlined />,
 };

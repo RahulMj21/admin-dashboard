@@ -10,7 +10,7 @@ const Heading = ({ text, subText }: Props) => {
 	const theme = useTheme();
 	const colors = getColors(theme.palette.mode);
 	return (
-		<Box mb={7}>
+		<Box mb={4}>
 			<Typography
 				variant="h2"
 				color={colors.grey[100]}
