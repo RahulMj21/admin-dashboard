@@ -15,3 +15,14 @@ export interface ITeam {
 	phone: string;
 	access: string;
 }
+export interface IContact {
+	id: number;
+	name: string;
+	email: string;
+	age: number;
+	phone: string;
+	address: string;
+	city: string;
+	zipCode: string;
+	registeredId: number;
+}

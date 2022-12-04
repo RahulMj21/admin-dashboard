@@ -1,18 +1,18 @@
 import Heading from "@/components/Heading";
-import { mockDataTeam } from "@/data/mockData";
+import { mockDataContacts } from "@/data/mockData";
 import { getColors } from "@/styles/theme";
-import { USER_ROLE_ICON } from "@/utils/constants";
-import { ITeam } from "@/utils/interfaces";
-import { TUserRole } from "@/utils/types";
-import { Box, Button, Typography, useTheme } from "@mui/material";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { IContact } from "@/utils/interfaces";
+import { Box, useTheme } from "@mui/material";
+import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
+import { NextSeo } from "next-seo";
 
 const Contacts = () => {
 	const theme = useTheme();
 	const colors = getColors(theme.palette.mode);
 
-	const columns: GridColDef<ITeam>[] = [
-		{ field: "id", headerName: "ID" },
+	const columns: GridColDef<IContact>[] = [
+		{ field: "id", headerName: "ID", flex: 0.5 },
+		{ field: "registeredId", headerName: "Registered ID" },
 		{
 			field: "name",
 			headerName: "Name",
@@ -25,50 +25,24 @@ const Contacts = () => {
 			type: "number",
 			headerAlign: "left",
 			align: "left",
-			sortable: false,
 		},
 		{ field: "email", headerName: "Email", flex: 1 },
 		{ field: "phone", headerName: "Phone", flex: 1 },
-		{
-			field: "access",
-			headerName: "Access Level",
-			flex: 1,
-			renderCell: ({ row: { access } }) => (
-				<Button
-					variant="contained"
-					sx={{
-						width: "100%",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						gap: "0.3rem",
-						background:
-							access === "admin"
-								? colors.greenAccent[600]
-								: colors.greenAccent[700],
-						":hover": {
-							background:
-								access === "admin"
-									? colors.greenAccent[600]
-									: colors.greenAccent[700],
-						},
-					}}
-				>
-					{USER_ROLE_ICON[access as TUserRole]}
-					<Typography
-						color={colors.grey[100]}
-						textTransform="capitalize"
-					>
-						{access}
-					</Typography>
-				</Button>
-			),
-		},
+		{ field: "address", headerName: "Address", flex: 1 },
+		{ field: "city", headerName: "City", flex: 1 },
+		{ field: "zipCode", headerName: "Zip Code", flex: 1 },
 	];
 
 	return (
 		<Box component="section" title="team">
-			<Heading text="CONTACTS" subText="Managing the Contacts" />
+			<NextSeo
+				title="ADMIN | Contacts"
+				description="Contacts page for admin"
+			/>
+			<Heading
+				text="CONTACTS"
+				subText="List of contact for future reference"
+			/>
 			<Box
 				height="75vh"
 				mb="2.5rem"
@@ -94,9 +68,16 @@ const Contacts = () => {
 					"& .MuiDataGrid-virtualScrollbar": {
 						background: colors.primary[400],
 					},
+					"& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+						color: colors.grey[100],
+					},
 				}}
 			>
-				<DataGrid rows={mockDataTeam} columns={columns} />
+				<DataGrid
+					rows={mockDataContacts}
+					columns={columns}
+					components={{ Toolbar: GridToolbar }}
+				/>
 			</Box>
 		</Box>
 	);

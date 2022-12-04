@@ -1,14 +1,7 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import React from "react";
 
-const Calender = () => {
-	return (
-		<Box>
-			<Typography variant="h1" fontWeight={600}>
-				Calender
-			</Typography>
-		</Box>
-	);
+const calender = () => {
+	return <div>calender</div>;
 };
 
-export default Calender;
+export default calender;

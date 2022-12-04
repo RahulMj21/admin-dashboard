@@ -6,6 +6,7 @@ import { ITeam } from "@/utils/interfaces";
 import { TUserRole } from "@/utils/types";
 import { Box, Button, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { NextSeo } from "next-seo";
 
 const Team = () => {
 	const theme = useTheme();
@@ -25,7 +26,6 @@ const Team = () => {
 			type: "number",
 			headerAlign: "left",
 			align: "left",
-			sortable: false,
 		},
 		{ field: "email", headerName: "Email", flex: 1 },
 		{ field: "phone", headerName: "Phone", flex: 1 },
@@ -68,6 +68,7 @@ const Team = () => {
 
 	return (
 		<Box component="section" title="team">
+			<NextSeo title="ADMIN | Team" description="Team page for admin" />
 			<Heading text="TEAM" subText="Managing the Team Members" />
 			<Box
 				height="75vh"
